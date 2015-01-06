@@ -1,7 +1,7 @@
 aufs3.x-rcN loopback patch
 
 diff --git a/drivers/block/loop.c b/drivers/block/loop.c
-index 30efd68..77b31b4 100644
+index 30efd68..2a9b789 100644
 --- a/drivers/block/loop.c
 +++ b/drivers/block/loop.c
 @@ -514,7 +514,7 @@ out:
@@ -55,8 +55,8 @@ index 30efd68..77b31b4 100644
 +static struct file *loop_real_file(struct file *file)
 +{
 +	struct file *f = NULL;
-+	if (file->f_dentry->d_sb->s_op->real_loop)
-+		f = file->f_dentry->d_sb->s_op->real_loop(file);
++	if (file->f_path.dentry->d_sb->s_op->real_loop)
++		f = file->f_path.dentry->d_sb->s_op->real_loop(file);
 +	return f;
 +}
  
@@ -209,7 +209,7 @@ index 1cd6fdc..54cf347 100644
  		if (file->f_mapping != h_file->f_mapping) {
  			file->f_mapping = h_file->f_mapping;
 diff --git a/fs/aufs/loop.c b/fs/aufs/loop.c
-index 54cb651..78416ea 100644
+index 54cb651..b18f61b 100644
 --- a/fs/aufs/loop.c
 +++ b/fs/aufs/loop.c
 @@ -130,3 +130,19 @@ void au_loopback_fin(void)
@@ -225,7 +225,7 @@ index 54cb651..78416ea 100644
 +{
 +	struct file *f;
 +
-+	BUG_ON(!au_test_aufs(file->f_dentry->d_sb));
++	BUG_ON(!au_test_aufs(file->f_path.dentry->d_sb));
 +	fi_read_lock(file);
 +	f = au_hf_top(file);
 +	fi_read_unlock(file);

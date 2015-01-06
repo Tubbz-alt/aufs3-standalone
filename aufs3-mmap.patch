@@ -163,10 +163,10 @@ index 4bf586e..59bd276 100644
  obj-y += init-mm.o
  
 diff --git a/mm/filemap.c b/mm/filemap.c
-index bd8543c..e5141e0 100644
+index 673e458..a623932 100644
 --- a/mm/filemap.c
 +++ b/mm/filemap.c
-@@ -2067,7 +2067,7 @@ int filemap_page_mkwrite(struct vm_area_struct *vma, struct vm_fault *vmf)
+@@ -2063,7 +2063,7 @@ int filemap_page_mkwrite(struct vm_area_struct *vma, struct vm_fault *vmf)
  	int ret = VM_FAULT_LOCKED;
  
  	sb_start_pagefault(inode->i_sb);
@@ -230,7 +230,7 @@ index a271adc..29a932f 100644
  	return error;
  }
 diff --git a/mm/memory.c b/mm/memory.c
-index 649e7d4..4b1eb18 100644
+index ca920d1..a352815 100644
 --- a/mm/memory.c
 +++ b/mm/memory.c
 @@ -2150,7 +2150,7 @@ reuse:
