@@ -1,10 +1,10 @@
 aufs3.x-rcN standalone patch
 
 diff --git a/fs/dcache.c b/fs/dcache.c
-index eaed72c..3b4386e 100644
+index 5bb7f93..7630f21 100644
 --- a/fs/dcache.c
 +++ b/fs/dcache.c
-@@ -1124,6 +1124,7 @@ rename_retry:
+@@ -1125,6 +1125,7 @@ rename_retry:
  	seq = 1;
  	goto again;
  }
@@ -13,7 +13,7 @@ index eaed72c..3b4386e 100644
  /*
   * Search for at least 1 mount point in the dentry's subdirs.
 diff --git a/fs/inode.c b/fs/inode.c
-index 98d87de..084d84f 100644
+index 1cf6782..1c25014 100644
 --- a/fs/inode.c
 +++ b/fs/inode.c
 @@ -57,6 +57,7 @@ static struct hlist_head *inode_hashtable __read_mostly;
@@ -24,7 +24,7 @@ index 98d87de..084d84f 100644
  
  /*
   * Empty aops. Can be used for the cases where the user does not
-@@ -1515,6 +1516,7 @@ int update_time(struct inode *inode, struct timespec *time, int flags)
+@@ -1501,6 +1502,7 @@ int update_time(struct inode *inode, struct timespec *time, int flags)
  	mark_inode_dirty_sync(inode);
  	return 0;
  }
@@ -33,7 +33,7 @@ index 98d87de..084d84f 100644
  /**
   *	touch_atime	-	update the access time
 diff --git a/fs/namespace.c b/fs/namespace.c
-index cd1e968..a99a3a7 100644
+index 6dae553..68b6511 100644
 --- a/fs/namespace.c
 +++ b/fs/namespace.c
 @@ -454,6 +454,7 @@ void __mnt_drop_write(struct vfsmount *mnt)
@@ -205,7 +205,7 @@ index 188c1d2..426d9af 100644
  int devcgroup_inode_mknod(int mode, dev_t dev)
  {
 diff --git a/security/security.c b/security/security.c
-index 18b35c6..12c67af 100644
+index a0442b2..eb148fa 100644
 --- a/security/security.c
 +++ b/security/security.c
 @@ -407,6 +407,7 @@ int security_path_rmdir(struct path *dir, struct dentry *dentry)
@@ -280,7 +280,7 @@ index 18b35c6..12c67af 100644
  
  int security_file_alloc(struct file *file)
  {
-@@ -753,6 +762,7 @@ int security_mmap_file(struct file *file, unsigned long prot,
+@@ -752,6 +761,7 @@ int security_mmap_file(struct file *file, unsigned long prot,
  		return ret;
  	return ima_file_mmap(file, prot);
  }
