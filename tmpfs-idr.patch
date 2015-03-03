@@ -19,7 +19,7 @@ index 50777b5..f9c6b3d 100644
  	kuid_t uid;		    /* Mount uid for root directory */
  	kgid_t gid;		    /* Mount gid for root directory */
 diff --git a/mm/shmem.c b/mm/shmem.c
-index a63031f..4be92c2 100644
+index 2f17cb5..005c775 100644
 --- a/mm/shmem.c
 +++ b/mm/shmem.c
 @@ -110,9 +110,13 @@ static unsigned long shmem_default_max_blocks(void)
