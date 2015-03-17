@@ -1,10 +1,10 @@
 aufs3.x-rcN base patch
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index ddc5a8c..e6b56e2 100644
+index 0e1abe8..fb14cf0 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -1853,6 +1853,20 @@ F:	include/linux/audit.h
+@@ -1864,6 +1864,20 @@ F:	include/linux/audit.h
  F:	include/uapi/linux/audit.h
  F:	kernel/audit*
  
