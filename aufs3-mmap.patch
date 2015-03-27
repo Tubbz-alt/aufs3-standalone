@@ -43,7 +43,7 @@ index d4a3574..1397181 100644
  		ino = inode->i_ino;
  	}
 diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
-index 956b75d..49f0dc8 100644
+index 6dee68d..9afa35d 100644
 --- a/fs/proc/task_mmu.c
 +++ b/fs/proc/task_mmu.c
 @@ -279,7 +279,10 @@ show_map_vma(struct seq_file *m, struct vm_area_struct *vma, int is_pid)
@@ -58,7 +58,7 @@ index 956b75d..49f0dc8 100644
  		dev = inode->i_sb->s_dev;
  		ino = inode->i_ino;
  		pgoff = ((loff_t)vma->vm_pgoff) << PAGE_SHIFT;
-@@ -1476,7 +1479,7 @@ static int show_numa_map(struct seq_file *m, void *v, int is_pid)
+@@ -1479,7 +1482,7 @@ static int show_numa_map(struct seq_file *m, void *v, int is_pid)
  	struct proc_maps_private *proc_priv = &numa_priv->proc_maps;
  	struct vm_area_struct *vma = v;
  	struct numa_maps *md = &numa_priv->md;
@@ -350,7 +350,7 @@ index 3fba2dc..870ce96 100644
  	return ret;
 diff --git a/mm/prfile.c b/mm/prfile.c
 new file mode 100644
-index 0000000..fc708d2
+index 0000000..6c145eb
 --- /dev/null
 +++ b/mm/prfile.c
 @@ -0,0 +1,86 @@
@@ -376,7 +376,7 @@ index 0000000..fc708d2
 +#ifdef PRFILE_TRACE
 +	if (pr)
 +		pr_info("%s:%d: %s, %p\n", func, line, func2,
-+			f ? (char *)f->f_dentry->d_name.name : "(null)");
++			f ? (char *)f->f_path.dentry->d_name.name : "(null)");
 +#endif
 +}
 +
