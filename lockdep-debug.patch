@@ -1,4 +1,4 @@
-aufs3.18 lockdep patch
+aufs3.18.25+ lockdep patch
 
 diff --git a/include/linux/lockdep.h b/include/linux/lockdep.h
 index 74ab231..6d63fe8 100644
